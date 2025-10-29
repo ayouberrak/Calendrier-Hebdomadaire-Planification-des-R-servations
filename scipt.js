@@ -140,9 +140,12 @@ document.addEventListener('DOMContentLoaded',function(){
       if(filtre){
         let nonRes = rese.non.toLowerCase().includes(filtre);
         let typeRes = rese.type.toLowerCase().includes(filtre);
+        let debutheure = rese.debut.includes(filtre);
+        let finheure = rese.fin.includes(filtre);
+        let nbrper = rese.personnes.includes(filtre);
 
         // si le non ou le type et vrai 
-        if(nonRes || typeRes  ){
+        if(nonRes || typeRes ||  debutheure){
           isMacth = true;
         }else{
           isMacth = false;
@@ -218,9 +221,25 @@ document.addEventListener('DOMContentLoaded',function(){
     }
 
     //  modifier 
+    //  ......................................................
     if(target.classList.contains('btn-modifier')){
       let card = target.closest('.reservation-card');
       let editId = card.dataset.id;
+
+      let reseToEdit = null;
+      for(let j =0;j<reservations.length;j++){
+        if(reservations[j].id === parseInt(editId)){
+          reseToEdit = reservations[j];
+          break;
+        }
+      }
+      if(reseToEdit){
+        NonClient.value =reseToEdit.non;
+        heureDebut.value = reseToEdit.debut;
+        heureFin.value=reseToEdit.fin;
+        nbrPresonnes.value=reseToEdit.personnes;
+        typeReservation.value=reseToEdit.type;
+      }
     }
 
   });
