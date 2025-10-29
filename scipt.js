@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded',function(){
                   '<span class="ml-1">' + rese.nom + '</span>' +
           '</span>' +
           '<div class="event-actions">' +
-                  '<button class="btn-modifier text-blue-600 text-xs font-medium hover:underline p-1">Mod</button>' +
+                  '<button class="btn-modifier text-blue-600 text-xs font-medium hover:underline p-1"><Modifier></button>' +
                   '<button class="btn-supprimer text-red-600 text-xs font-medium hover:underline p-1">&times;</button>' +
           '</div>';
     }
@@ -194,7 +194,35 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // gerer le click de modifier et supprimer 
   calendrier.addEventListener('click',function(e){
-    
+    let click = e.target;
+
+    // supprimer
+    if(click.classList.contains('btn-supprimer')){
+      let card = target.closest('.reservation-card')
+      let delateId = card.dataset.id;
+
+      // confirmation 
+      if(confirm('vous voulez vraiment supprimer la reservation')){
+        let newResvation = [];
+        // on garde les resevation sauf supprimer 
+        for (let i =0 ; i<reservations.length;i++){
+          if(reservations[i].id != parseInt(delateId)){
+            newResvation.push(reservations[i]);
+          }
+        }
+        reservations = newResvation;
+
+        renderReservations();
+        saveToLocalStorage();
+      }
+    }
+
+    //  modifier 
+    if(target.classList.contains('btn-modifier')){
+      let card = target.closest('.reservation-card');
+      let editId = card.dataset.id;
+    }
+
   });
 
 
