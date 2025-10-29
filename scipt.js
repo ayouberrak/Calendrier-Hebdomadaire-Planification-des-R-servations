@@ -113,14 +113,24 @@ document.addEventListener('DOMContentLoaded',function(){
       joursRes = 7 -(totalDiv % 7);
     }
 
-    
+    for (let i = 0 ; i <joursRes ; i++){
+      calendrier.innerHTML += '<div class="day-cell-empty"></div>';
+    }
 
-
-
-
-
+    // tracer les reservations 
+    tracerReservation();
   }
 
+  
+  function tracerReservation(){
+    // vider tous les div 
+    let container = document.querySelectorAll('.resevations-container');
+    for (let i = 0 ; i<container.length ;i++){
+      container[i].innerHTML = '';
+    }
+    
+    
+  }
 
 
 
