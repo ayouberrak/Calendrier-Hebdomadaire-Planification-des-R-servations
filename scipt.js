@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded',function(){
     calendrier.innerHTML="";
     // first day of month , nombre de jours de mois , l'emplacement de premier jour dans la semaine
     let firstdayinmonth = new Date(anne,mois,1);
-    let nbrdayinmonth = new Date(anne,mois+1,0).getDate;
+    let nbrdayinmonth = new Date(anne,mois+1,0).getDate();
     let dayforweek = firstdayinmonth.getDay();
 
     //  l'emplacement de premier jour dans la semaine
@@ -77,8 +77,43 @@ document.addEventListener('DOMContentLoaded',function(){
       calendrier.innerHTML += '<div class="day-cell-empty"></div>';
     }
 
-    
+    // ajout de div de ce mois 
+    let aujoudhui = new Date();
+    for (let jour = 1 ; jour<dayforweeks ; jour++){
+      let datee = new Date(anne,mois,jour);
+      
+      let date = anne + '-' +mois + '-'+jour;
+      let jourSemaine = datee.getDay();
 
+      // weekand 
+      let divClasse = 'jour-semaine';
+      if (jourSemaine === 0 || jourSemaine ===6){
+        divClasse += 'jour-semaine-weekend';
+      }
+
+      // aujourdhui
+      if(anne === aujoudhui.getFullYear() && mois === aujoudhui.getMonth && jour === aujoudhui.getDate()){
+        divClasse += 'jour-semaine-aujoudhui';
+      }
+
+      // la structure html des div de la grille 
+      calendrier.innerHTML += 
+        '<div class ="'+divClasse + 'data-date="'+ date + '">'+
+            '<span class="day-number">'+day+'</sapn>'+
+            '<div class="resevations-container" id="res-container-'+date+'"></div>'+
+        '</div>';
+    }
+
+    // les joures de next mois 
+    let totalDiv = dayforweeks + nbrdayinmonth;
+    let joursRes;
+    if(totalDiv % 7 ===0){
+      joursRes = 0;
+    }else {
+      joursRes = 7 -(totalDiv % 7);
+    }
+
+    
 
 
 
