@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded',function(){
 
   const date =new Date();
 
+  let reservations = []; 
+
   // function for open the form
   function openForm(){
     reservationModel.reset();
@@ -121,7 +123,7 @@ document.addEventListener('DOMContentLoaded',function(){
     tracerReservation();
   }
 
-  
+  let filtre = "";
   function tracerReservation(){
     // vider tous les div 
     let container = document.querySelectorAll('.resevations-container');
@@ -130,7 +132,71 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     
     
+    // search logique
+    for (let i = 0;i<reservations.length;j++){
+      let rese=reservations[i];
+
+      let isMacth = true;
+      if(filtre){
+        let nonRes = rese.non.toLowerCase().includes(filtre);
+        let typeRes = rese.type.toLowerCase().includes(filtre);
+
+        // si le non ou le type et vrai 
+        if(nonRes || typeRes  ){
+          isMacth = true;
+        }else{
+          isMacth = false;
+        }
+      }
+
+    // le container de jour
+    let container = document.getElementById('res-container-'+rese.jour);
+
+    // si le container de jour existe 
+    if(container){
+      // ajout les class pour style des div des card et on stok les id de reservation 
+      let card = document.createElement('div');
+      card.classList.add('reservation-card','type-'+rese.type);
+      card.dataset.id = rese.id;
+      card.draggable = true; // draggable pour deplacement des reservation
+    }
+
+    // si la reservation et pas dans le filter o la rend transparent
+    if(!isMacth){
+      crad.classList.add('reservation-card-transparent');
+    }
+
+    // afficher heure et le non + button supprimer et modifier avec leur style 
+    card.innerHTML=
+          '<span class="event-info">' +
+                  '<span class="font-bold">' + rese.debut + '</span>' +
+                  '<span class="ml-1">' + rese.nom + '</span>' +
+          '</span>' +
+          '<div class="event-actions">' +
+                  '<button class="btn-modifier text-blue-600 text-xs font-medium hover:underline p-1">Mod</button>' +
+                  '<button class="btn-supprimer text-red-600 text-xs font-medium hover:underline p-1">&times;</button>' +
+          '</div>';
+    }
   }
+
+  // gerer le click pour ajouter rejervation
+  calendrier.addEventListener('click' , function(e){
+    let clickJour = e.target.closest('.day-cell');
+    // si il click sur une div n'est pas dans le weekand
+    if(clickJour && !clickJour.classList.contains('day-cell-weekend')){
+      // si on ne click pas sur une reservation 
+      if(!e.target.closest('.reservation-card')){
+        let date = clickJour.dataset.date;
+        openForm(date);
+      }
+    }
+  });
+
+  // gerer le click de modifier et supprimer 
+  calendrier.addEventListener('click',function(e){
+    
+  });
+
 
 
 
@@ -139,4 +205,3 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 })
-
