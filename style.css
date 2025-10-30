@@ -1,0 +1,156 @@
+
+/* === STYLES POUR LA VUE "MOIS" === */
+
+.jour-semaine {
+  min-height: 120px;
+  padding: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  overflow: hidden;
+  /* On laisse la grille Tailwind (gap-px bg-gray-300) gérer les bordures */
+}
+
+/* CORRIGÉ: Bddlna .day-cell:hover b .jour-semaine:hover */
+.jour-semaine:hover {
+  background-color: #dddddd; /* bg-sky-50 */
+}
+
+.day-number {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000; /* text-gray-700 */
+  padding-bottom: 4px;
+}
+
+.day-cell-empty {
+  min-height: 120px;
+  background-color: #797979; /* bg-gray-100 */
+  opacity: 0.8;
+  cursor: not-allowed ;
+}
+
+/* CORRIGÉ: Bddlna .day-cell-weekend b .jour-semaine-weekend */
+.jour-semaine-weekend {
+  min-height: 120px; /* AJOUTÉ: Zdt min-height hna bach yb9a l grid m9ad */
+  background-color: #797979; /* bg-gray-100 */
+  pointer-events: none;
+  opacity: 0.8;
+  padding: 8px; /* AJOUTÉ: Zdt padding hna */
+}
+
+/* CORRIGÉ: Bddlna .day-cell-today b .jour-semaine-aujoudhui */
+.jour-semaine-aujoudhui {
+  /* Fond de cellule plus subtil pour "aujourd'hui" */
+  background-color: #c1d6eb; /* bg-blue-50 */
+}
+
+/* CORRIGÉ: Bddlna .day-cell-today .day-number */
+.jour-semaine-aujoudhui .day-number {
+  /* On met en surbrillance le numéro plutôt que toute la cellule */
+  color: #1d4ed8; /* text-blue-700 */
+  background-color: #dbeafe; /* bg-blue-100 */
+  border-radius: 99px;
+  padding: 2px 6px;
+  display: inline-block; /* AJOUTÉ: Bach l padding yban mzyan */
+}
+
+.reservations-container {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Un peu plus d'espace */
+}
+
+/* === NOUVEAU STYLE DES CARTES DE RÉSERVATION === */
+.reservation-card {
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+
+  /* CHANGEMENT PRINCIPAL : Fond blanc + bordure colorée à gauche */
+  background-color: rgba(207, 207, 207, 0.655);
+  border-left-width: 4px;
+  border-color: #e5e7eb; /* Bordure grise par défaut */
+}
+
+.reservation-card:hover {
+  /* Effet de survol amélioré */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.event-actions {
+  /* Les actions apparaissent au survol */
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0; /* Empêche les boutons de "rétrécir" */
+}
+
+.reservation-card:hover .event-actions {
+  opacity: 1;
+}
+
+.event-info {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+  flex-grow: 1; /* Prend l'espace disponible */
+  
+  /* L'info ne disparaît plus, elle reste visible */
+}
+
+/* === NOUVEAU STYLE POUR LE FILTRE === */
+
+/* CORRIGÉ: Bddlna .reservation-card-faded b .reservation-card-transparent (bach y twafe9 m3a JS) */
+.reservation-card-transparent {
+  opacity: 0.3;
+  pointer-events: none; /* Désactive le clic et le drag */
+}
+
+/* === NOUVELLES COULEURS (juste la bordure) === */
+.type-standard {
+  border-left-color: #0062ff ; /* blue-500 */
+}
+.type-vip {
+  border-left-color: #ef4444; /* red-500 */
+}
+.type-anniversaire {
+  border-left-color: #f59e0b; /* amber-500 */
+}
+.type-groupe {
+  border-left-color: #22c55e; /* green-500 */
+}
+
+/* Optionnel : On peut aussi colorer l'heure pour plus de visibilité */
+.type-standard .font-bold { color: #2563eb; }
+.type-vip .font-bold { color: #dc2626; }
+.type-anniversaire .font-bold { color: #d97706; }
+.type-groupe .font-bold { color: #16a34a; }
+
+/* === AJOUTÉ: Styles pour l feedback dial DRAG & DROP === */
+.drag-over-target {
+  background-color: #dbeafe; /* bg-blue-100 */
+  outline: 2px dashed #3b82f6; /* blue-500 */
+  outline-offset: -4px;
+}
+
+.reservation-card.opacity-50 {
+  /* Had l class ki zidha l JS mli kan bda n draggiw */
+  opacity: 0.5;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Nkfbro chwiya l shadow */
+  transform: rotate(3deg) scale(1.05); /* Nmiloh chwiya */
+}
