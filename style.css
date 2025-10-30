@@ -21,3 +21,20 @@ body {
                     linear-gradient(90deg, rgba(0,0,0,0.02) 2%, transparent 2%);
   background-size: 30px 30px;
 }
+
+
+/* === 3. HEADER W TITRE === */
+header.bg-white {
+  background-color: transparent !important; /* N7ydo l byed dial Tailwind */
+  box-shadow: none !important; /* N7ydo shadow dial Tailwind */
+  border-bottom: 2px dashed #a1887f; /* Ndiro str b7al m9tte3 */
+  padding-bottom: 1rem !important;
+}
+
+header h1.font-bold {
+  font-family: 'Caveat', cursive; /* Font dial l yedd */
+  font-size: 3.5rem; /* Nkebroh bzaf */
+  color: #5d4037;
+  font-weight: 700 !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
