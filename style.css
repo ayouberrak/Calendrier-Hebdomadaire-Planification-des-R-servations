@@ -125,3 +125,9 @@ main > .bg-white {
 .grid.text-center > div:first-child { border-radius: 0 !important; }
 .grid.text-center > div:last-child { border-radius: 0 !important; }
 
+
+/* === 8. L GRID DIAL L CALENDAR === */
+#calendar-grid {
+  background-color: #dcd3c8 !important; /* Hada ghaywlli howa l "gap" */
+  border: 1px solid #dcd3c8 !important;
+}
