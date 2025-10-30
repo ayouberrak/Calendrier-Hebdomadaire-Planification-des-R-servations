@@ -131,3 +131,40 @@ main > .bg-white {
   background-color: #dcd3c8 !important; /* Hada ghaywlli howa l "gap" */
   border: 1px solid #dcd3c8 !important;
 }
+
+/* === 9. STYLE DIAL L KHANAT (LES JOURS) === */
+/* (Had l classes kayzidhom l JS) */
+
+.jour-semaine {
+  min-height: 120px;
+  padding: 8px;
+  background-color: #ffffff !important; /* War9a byda */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+.jour-semaine:hover {
+  background-color: #fdfaf3 !important; /* Loun l war9a l9dima */
+}
+
+.day-number {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #795548;
+  padding-bottom: 4px;
+  text-align: right; /* Nrddo l r9m f l 9nt */
+}
+
+.day-cell-empty,
+.jour-semaine-weekend {
+  min-height: 120px;
+  background-color: #f7f5f2 !important; /* War9a gris chwiya */
+  cursor: not-allowed;
+  padding: 8px;
+}
+.jour-semaine-weekend .day-number {
+  color: #a1887f;
+  opacity: 0.7;
+}
+
