@@ -9,3 +9,15 @@
 */
 
 
+/* === 2. L STYLE L 3AM (L PAGE KAMLA) === */
+body {
+  /* Knbdlo l background l wa7ed loun b7al dial l war9a 9dima */
+  background-color: #fdfaf3 !important;
+  color: #4a3c31; /* Loun b7al l 7bar (marrron ghame9) */
+  font-family: 'Merriweather', serif; /* L font l 3am */
+  
+  /* Zwa9a b7al l war9a mstrra b 5fafa */
+  background-image: linear-gradient(rgba(0,0,0,0.02) 2%, transparent 2%),
+                    linear-gradient(90deg, rgba(0,0,0,0.02) 2%, transparent 2%);
+  background-size: 30px 30px;
+}
