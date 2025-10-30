@@ -168,3 +168,19 @@ main > .bg-white {
   opacity: 0.7;
 }
 
+/* ========= DEBUT DIAL TBDIL LI TLBTI (Gris w Zre9) ========= */
+.jour-semaine-aujoudhui {
+  background-color: #f0f4f9 !important; /* Gris fat7 mzrreq chwiya */
+}
+
+.jour-semaine-aujoudhui .day-number {
+  color: #ffffff !important;
+  background-color: #1a73e8 !important; /* Zre9 (b7al dial Google) */
+  border-radius: 50%;
+  padding: 4px 8px;
+  display: inline-block;
+  font-weight: 700;
+  float: right; /* Yji f l 9nt 3la limn */
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+/* ========= FIN DIAL TBDIL LI TLBTI ========= */
