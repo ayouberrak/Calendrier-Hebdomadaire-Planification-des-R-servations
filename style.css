@@ -428,3 +428,32 @@ main > .bg-white {
   background-color: #e8f5e9; /* Khder bared bzaf */
 }
 
+
+/* === 15. STYLE L SELECT BOX MNI T5TAR L TYPE === */
+/* Hada howa l code li ghaylwwen l select box (b l JS) */
+
+/* Kan7ydo l loun l aslli mli ykon wa7ed mn hado */
+#type-reservation.select-standard,
+#type-reservation.select-vip,
+#type-reservation.select-anniversaire,
+#type-reservation.select-groupe {
+  background-color: transparent !important;
+}
+
+/* Kanlwno l border-bottom b loun l 9dim dial l form */
+#type-reservation.select-standard {
+  border-bottom: 2px solid #4fc3f7 !important; /* Zre9 */
+}
+#type-reservation.select-vip {
+  border-bottom: 2px solid #e57373 !important; /* 7mer */
+}
+#type-reservation.select-anniversaire {
+  border-bottom: 2px solid #fff176 !important; /* Sfer */
+}
+#type-reservation.select-groupe {
+  border-bottom: 2px solid #81c784 !important; /* Khder */
+}
+
+.btn-modifier , .btn-supprimer{
+    color: rgb(0, 0, 0) !important;
+}
