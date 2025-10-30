@@ -108,3 +108,20 @@ main > .bg-white {
   transform: translateY(1px);
 }
 
+
+/* === 7. L HEADER DIAL LYAMAT (LUNDI, MARDI...) === */
+.grid.text-center > .bg-gray-600 {
+  background-color: #e0d8ce !important; /* Gris/Marron fat7 */
+  color: #5d4037 !important;
+  font-family: 'Merriweather', serif;
+  font-weight: 700 !important;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.75rem 0.25rem !important;
+  border-bottom: 2px solid #c8bdae;
+}
+/* N7ydo l rounded corners dial Tailwind */
+.grid.text-center > div:first-child { border-radius: 0 !important; }
+.grid.text-center > div:last-child { border-radius: 0 !important; }
+
