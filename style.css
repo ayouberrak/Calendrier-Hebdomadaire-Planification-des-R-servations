@@ -399,3 +399,32 @@ main > .bg-white {
   background-color: #6d4c41 !important;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
+
+/* === 14. STYLE L LES OPTIONS DIAL L SELECT === */
+/* Kanlwno kolla option b l loun dialha bach ybano mzyan */
+
+#type-reservation option {
+  /* Style 3am l ga3 les options */
+  padding: 4px 8px; 
+  font-weight: 700;
+  color: #4a3c31; /* Loun dial l 7bar (marron ghame9) */
+}
+
+/* Kan3tiw loun bared (pastel) b7al l war9a mlwna */
+
+#type-reservation option[value="standard"] {
+  background-color: #e3f2fd; /* Zre9 bared bzaf */
+}
+
+#type-reservation option[value="vip"] {
+  background-color: #ffebee; /* 7mer bared bzaf */
+}
+
+#type-reservation option[value="anniversaire"] {
+  background-color: #fffde7; /* Sfer bared bzaf */
+}
+
+#type-reservation option[value="groupe"] {
+  background-color: #e8f5e9; /* Khder bared bzaf */
+}
+
