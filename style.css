@@ -184,3 +184,39 @@ main > .bg-white {
   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 /* ========= FIN DIAL TBDIL LI TLBTI ========= */
+
+
+.reservations-container {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/* === 10. STYLE DIAL LES CARTES (RESERVATIONS) === */
+/* Style "Pastel/Sticker" (L background mlwwen) */
+
+.reservation-card {
+  padding: 4px 9px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 700; /* Ktba ghليda */
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+  
+  /* CHANGEMENT: Drna border 5fif b7al sticker */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.reservation-card:hover {
+  /* Effet dial "lift" mli t'hoveri */
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
