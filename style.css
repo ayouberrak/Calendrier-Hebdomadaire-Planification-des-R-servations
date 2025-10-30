@@ -264,3 +264,24 @@ main > .bg-white {
   pointer-events: none;
 }
 
+/* === L ALWAN L JDAD DIAL L BACKGROUND === */
+/* Drna l alwan li déja 5tariti l l select box, 
+  w drna l ktba b loun ghame9 mtwalm m3ahom
+*/
+
+.type-standard { 
+  background-color: #007ed8; /* Zre9 bared bzaf */
+  color: #ffffff; /* Loun l ktba */
+}
+.type-vip { 
+  background-color: #ff0026; /* 7mer bared bzaf */
+  color: #ffffff; /* Loun l ktba */
+}
+.type-anniversaire { 
+  background-color: #ada00f; /* Sfer bared bzaf */
+  color: #ffffff; /* Loun l ktba */
+}
+.type-groupe { 
+  background-color: #00750a; /* Khder bared bzaf */
+  color: #ffffff; /* Loun l ktba */
+}
