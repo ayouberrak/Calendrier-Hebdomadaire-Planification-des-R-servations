@@ -339,3 +339,63 @@ main > .bg-white {
 #close-modal-btn:hover {
   color: #bf360c !important; /* Loun l 7mer dial l "cachet" */
 }
+
+/* === 13. STYLE DIAL L FORM === */
+#reservation-form label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #5d4037;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs b7al ila mstrrin b l yedd */
+#reservation-form input,
+#reservation-form select {
+  background-color: #fdfaf3 !important;
+  border: none !important;
+  border-bottom: 2px solid #dcd3c8 !important; /* Ghir str l t7t */
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.5rem 0.25rem !important;
+  -webkit-appearance: none; /* Kay7yd l style l 9dim dial l select */
+  appearance: none;
+}
+#reservation-form input:focus,
+#reservation-form select:focus {
+  background-color: #fff !important;
+  border-color: #795548 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Buttons dial l form */
+#cancel-btn, 
+#reservation-form button[type="submit"] {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 3px;
+  padding: 0.6rem 1rem !important;
+  color: white !important;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+#cancel-btn {
+  background-color: #d8ccc0 !important; /* Loun bahet */
+  color: #5d4037 !important;
+}
+#cancel-btn:hover {
+  background-color: #c8bdae !important;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+#reservation-form button[type="submit"] {
+  background-color: #8d6e63 !important; /* Loun l marron l asassi */
+}
+#reservation-form button[type="submit"]:hover {
+  background-color: #6d4c41 !important;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
