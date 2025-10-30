@@ -38,3 +38,25 @@ header h1.font-bold {
   font-weight: 700 !important;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
+
+/* === 4. L FILTRE DIAL L RECHERCHE === */
+#search-filter {
+  background-color: #f5f0e8 !important;
+  border: 1px solid #c8bdae !important;
+  border-radius: 4px !important;
+  color: #4a3c31;
+  font-family: 'Merriweather', serif;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem !important;
+  transition: all 0.2s ease;
+}
+#search-filter::placeholder {
+  color: #a1887f;
+}
+#search-filter:focus {
+  background-color: #fff !important;
+  border-color: #8d6e63 !important;
+  box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.2) !important;
+  outline: none !important;
+}
+
