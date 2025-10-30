@@ -68,3 +68,43 @@ main > .bg-white {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1) !important;
   border-radius: 2px !important; /* War9a makatkonch mdwra bzaf */
 }
+
+/* === 6. NAVIGATION (BUTTONS W L MOIS) === */
+#current-month-year {
+  font-family: 'Caveat', cursive; /* Font dial l yedd */
+  font-size: 2.5rem;
+  color: #3e2723;
+  font-weight: 700 !important;
+}
+
+#prev-month-btn, 
+#next-month-btn {
+  font-family: 'Merriweather', serif;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 4px !important;
+  padding: 0.5rem 1rem !important;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+/* Loun b7al chi "cachet" (tmbira) */
+#prev-month-btn {
+  background-color: #a98274 !important; /* 7mer/marron bahet */
+}
+#prev-month-btn:hover {
+  background-color: #8c6d61 !important;
+  transform: translateY(1px);
+}
+#next-month-btn {
+  background-color: #6a7f75 !important; /* Khder/gris bahet */
+}
+#next-month-btn:hover {
+  background-color: #566960 !important;
+  transform: translateY(1px);
+}
+
