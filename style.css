@@ -307,3 +307,35 @@ main > .bg-white {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+
+/* === 12. STYLE DIAL L MODAL (FORM) === */
+#reservation-modal {
+  /* Overlay b loun l war9a l 9dima */
+  background-color: rgba(60, 45, 30, 0.7) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#reservation-modal > .bg-white {
+  background-color: #ffffff !important; /* L modal howa war9a byda */
+  border-radius: 2px !important;
+  padding: 2rem !important;
+  /* Effet dial war9a fou9 war9a */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2), 0 0 0 10px #fdfaf3 !important; 
+}
+
+#modal-title {
+  font-family: 'Caveat', cursive; /* Font dial l yedd */
+  font-size: 2.2rem;
+  color: #3e2723;
+  margin-bottom: 1.5rem !important;
+}
+
+#close-modal-btn {
+  font-family: 'Merriweather', serif;
+  color: #a1887f !important;
+  font-size: 2rem;
+}
+#close-modal-btn:hover {
+  color: #bf360c !important; /* Loun l 7mer dial l "cachet" */
+}
