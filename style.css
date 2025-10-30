@@ -285,3 +285,25 @@ main > .bg-white {
   background-color: #00750a; /* Khder bared bzaf */
   color: #ffffff; /* Loun l ktba */
 }
+
+/* Tss7i7 l loun dial l buttons f l alwan l ghaym9in */
+.type-standard .event-actions button { color: #1c3a5a; }
+.type-vip .event-actions button { color: #6e2a3c; }
+.type-anniversaire .event-actions button { color: #5c4d0a; }
+.type-groupe .event-actions button { color: #3a5a1c; }
+
+/* === 11. DRAG & DROP === */
+.drag-over-target {
+  background-color: #f0e9e0 !important;
+  outline: 2px dashed #8d6e63;
+  outline-offset: -4px;
+}
+
+.reservation-card.opacity-50 {
+  opacity: 0.7;
+  background-color: #fff;
+  border-style: solid;
+  transform: rotate(3deg) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
