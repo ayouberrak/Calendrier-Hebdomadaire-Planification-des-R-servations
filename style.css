@@ -60,3 +60,11 @@ header h1.font-bold {
   outline: none !important;
 }
 
+/* === 5. L CONTAINER DIAL L CALENDAR === */
+main > .bg-white {
+  background-color: #ffffff !important; /* L war9a l kbira l byda */
+  border: 1px solid #dcd3c8;
+  /* Shadow b7al dial chi war9a m7tota */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 2px !important; /* War9a makatkonch mdwra bzaf */
+}
