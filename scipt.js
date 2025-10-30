@@ -22,6 +22,7 @@ let typeReservation = document.getElementById('type-reservation');
 let stopReservation = document.getElementById('close-modal-btn');
 let cancel =document.getElementById('cancel-btn');
 
+let currentDate = new Date();
 
 
 document.addEventListener('DOMContentLoaded',function(){
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-  function desincalendrier(anne,mois){
+  function redesincalendrier(anne,mois){
     calendrier.innerHTML="";
     // first day of month , nombre de jours de mois , l'emplacement de premier jour dans la semaine
     let firstdayinmonth = new Date(anne,mois,1);
@@ -124,10 +125,11 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 
   let filtre = "";
+
   function tracerReservation(){
     // vider tous les div 
     let container = document.querySelectorAll('.resevations-container');
-    for (let i = 0 ; i<container.length ;i++){
+    for (let i = 0 ; i<container.length ;i++){ 
       container[i].innerHTML = '';
     }
     
@@ -145,7 +147,7 @@ document.addEventListener('DOMContentLoaded',function(){
         let nbrper = rese.personnes.includes(filtre);
 
         // si le non ou le type et vrai 
-        if(nonRes || typeRes ||  debutheure){
+        if(nonRes || typeRes ||  debutheure || finheure || nbrper){
           isMacth = true;
         }else{
           isMacth = false;
@@ -233,16 +235,90 @@ document.addEventListener('DOMContentLoaded',function(){
           break;
         }
       }
+      // si il y a une reservation on rempli le form et le champ cache id , le titre de form 
       if(reseToEdit){
         NonClient.value =reseToEdit.non;
         heureDebut.value = reseToEdit.debut;
         heureFin.value=reseToEdit.fin;
         nbrPresonnes.value=reseToEdit.personnes;
         typeReservation.value=reseToEdit.type;
+        formAjout.value = reseToEdit.jour;
+        formEdit.value = reseToEdit.id;
+        titreModal.textContent = "Modifer la reservation ";
+        
+        //remove de class hidden 
+        reservationModel.classList.remove('hidden');
       }
     }
-
   });
+  
+
+  // logique de filter 
+  // le filtere se refreche a chaque modification dans input de search 
+  search.addEventListener('input',function(e){
+      filtre = e.target.value.toLowerCase();
+      tracerReservation();
+  });
+
+  // pour la fontionalite de mois precedant 
+  prevWeek.addEventListener('click',function(){
+    currentDate.setMonth(currentDate.getMonth()-1);
+    redesincalendrier(currentDate.getFullYear(), currentDate.getMonth());
+  });
+  //  pour la fonctionalite de mois de suivant
+  nextWeek.addEventListener('click' , function(){
+    currentDate.setMonth(currentDate.getMonth()+1);
+    redesincalendrier(currentDate.getFullYear(),currentDate.getMonth());
+  })
+
+  // fomra de date de header 
+
+  // logique de submit de form 
+  formReservation.addEventListener('submit',function(e){
+    e.preventDefault();
+
+    let newId;
+    //  si il y a formEdit donc la modification , sinon est l'ajout  
+    if(formEdit.value){
+      newId = parseInt(formEdit.value);
+    }else {
+      // dans l'ajout un id nouveau
+      newId = Date.now();
+    }
+    
+  // objet pour stoker les info de formulaire 
+  let reservationData = {
+            id: newId,
+            jour: formAjout.value,
+            nom: NonClient.value,
+            debut: heureDebut.value,
+            fin: heureFin.value,
+            personnes: nbrPresonnes.value,
+            type: typeReservation.value,
+        };
+  
+  //  si dans la modification 
+  if(formEdit.value){
+    // on cherche l'ancien reservaation 
+    for(let i = 0 ; i<reservations.length;i++ ){
+      // on remplace par la nouvelle
+      if(reservations[i].id === reservationData.id){
+        reservations[i] = reservationData;
+      }
+    }
+  } else {
+    // sinon c est lajout 
+    reservations.push(reservationData);
+  }
+
+  saveToLocalStorage();
+  renderReservations();
+
+    
+
+  })
+
+
 
 
 
