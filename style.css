@@ -220,3 +220,47 @@ main > .bg-white {
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
+/* 7YDYDNA L CODE DIAL ::before KAMEL */
+
+/* L style dial l actions b9a nafsso */
+.event-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.event-actions button {
+  color: inherit; /* Ghayakhod l loun mn l parent dialo */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-weight: 700; /* Nrdohom bold */
+}
+.event-actions button:hover {
+  text-decoration: underline;
+}
+.event-actions .btn-supprimer:hover {
+  opacity: 0.7; /* Nkhffo l loun chwiya */
+}
+
+.reservation-card:hover .event-actions {
+  opacity: 0.8;
+}
+
+.event-info {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+/* Filtre b9a nafsso */
+.reservation-card-transparent {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
