@@ -224,15 +224,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
+    //  delete logique
     calendrier.addEventListener('click', function (e) {
         let click = e.target; 
-
+        //  si il a clicke sur button supprimer 
         if (click.classList.contains('btn-supprimer')) {
             let card = click.closest('.reservation-card')
             let delateId = card.dataset.id;
 
             if (confirm('vous voulez vraiment supprimer la reservation')) {
+              //  si il confirme il se suprime
                 let newResvation = [];
                 for (let i = 0; i < reservations.length; i++) {
                     if (reservations[i].id != parseInt(delateId)) {
