@@ -4,11 +4,6 @@
 
 Ce projet a été développé en utilisant uniquement **HTML5**, **CSS3** et **JavaScript**. Il met l'accent sur la manipulation avancée du DOM, la gestion des événements et la persistance des données via le `localStorage` du navigateur.
 
-## 📸 Aperçu
-
-> **Note importante :** Remplace l'image ci-dessous par une vraie capture d'écran de ton projet ! C'est la chose la plus importante de ton README.
-
-![Aperçu du calendrier Le Gourmet](https://calendrier-hebdomadaire-planificati.vercel.app/)
 
 ## ✨ Fonctionnalités Principales
 
