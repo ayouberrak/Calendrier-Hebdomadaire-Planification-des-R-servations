@@ -36,7 +36,7 @@ Ce projet est une application "statique" et ne nécessite aucun back-end ou proc
 
 1.  Clonez ce dépôt sur votre machine locale :
     ```bash
-    git clone [https://github.com/VOTRE-NOM-UTILISATEUR/VOTRE-REPO.git](https://github.com/VOTRE-NOM-UTILISATEUR/VOTRE-REPO.git)
+    git clone [https://github.com/ayouberrak/Calendrier-Hebdomadaire-Planification-des-R-servations](https://github.com/ayouberrak/Calendrier-Hebdomadaire-Planification-des-R-servations)
     ```
 2.  Naviguez dans le dossier du projet :
     ```bash
