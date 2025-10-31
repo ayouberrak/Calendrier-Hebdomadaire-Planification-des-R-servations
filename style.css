@@ -47,16 +47,14 @@ header h1.font-bold {
 }
 
 main > .bg-white {
-  background-color: #ffffff !important; /* L war9a l kbira l byda */
+  background-color: #ffffff !important; 
   border: 1px solid #dcd3c8;
-  /* Shadow b7al dial chi war9a m7tota */
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 2px !important; /* War9a makatkonch mdwra bzaf */
+  border-radius: 2px !important; 
 }
 
-/* === 6. NAVIGATION (BUTTONS W L MOIS) === */
 #current-month-year {
-  font-family: 'Caveat', cursive; /* Font dial l yedd */
+  font-family: 'Caveat', cursive;
   font-size: 2.5rem;
   color: #3e2723;
   font-weight: 700 !important;
@@ -76,27 +74,23 @@ main > .bg-white {
   letter-spacing: 1px;
   font-size: 0.8rem;
 }
-
-/* Loun b7al chi "cachet" (tmbira) */
 #prev-month-btn {
-  background-color: #a98274 !important; /* 7mer/marron bahet */
+  background-color: #a98274 !important; 
 }
 #prev-month-btn:hover {
   background-color: #8c6d61 !important;
   transform: translateY(1px);
 }
 #next-month-btn {
-  background-color: #6a7f75 !important; /* Khder/gris bahet */
+  background-color: #6a7f75 !important; 
 }
 #next-month-btn:hover {
   background-color: #566960 !important;
   transform: translateY(1px);
 }
 
-
-/* === 7. L HEADER DIAL LYAMAT (LUNDI, MARDI...) === */
 .grid.text-center > .bg-gray-600 {
-  background-color: #e0d8ce !important; /* Gris/Marron fat7 */
+  background-color: #e0d8ce !important; 
   color: #5d4037 !important;
   font-family: 'Merriweather', serif;
   font-weight: 700 !important;
@@ -106,31 +100,26 @@ main > .bg-white {
   padding: 0.75rem 0.25rem !important;
   border-bottom: 2px solid #c8bdae;
 }
-/* N7ydo l rounded corners dial Tailwind */
 .grid.text-center > div:first-child { border-radius: 0 !important; }
 .grid.text-center > div:last-child { border-radius: 0 !important; }
 
 
-/* === 8. L GRID DIAL L CALENDAR === */
 #calendar-grid {
-  background-color: #dcd3c8 !important; /* Hada ghaywlli howa l "gap" */
+  background-color: #dcd3c8 !important; 
   border: 1px solid #dcd3c8 !important;
 }
-
-/* === 9. STYLE DIAL L KHANAT (LES JOURS) === */
-/* (Had l classes kayzidhom l JS) */
 
 .jour-semaine {
   min-height: 120px;
   padding: 8px;
-  background-color: #ffffff !important; /* War9a byda */
+  background-color: #ffffff !important; 
   cursor: pointer;
   transition: background-color 0.2s;
   overflow: hidden;
   position: relative;
 }
 .jour-semaine:hover {
-  background-color: #fdfaf3 !important; /* Loun l war9a l9dima */
+  background-color: #fdfaf3 !important; 
 }
 
 .day-number {
@@ -138,13 +127,13 @@ main > .bg-white {
   font-weight: 700;
   color: #795548;
   padding-bottom: 4px;
-  text-align: right; /* Nrddo l r9m f l 9nt */
+  text-align: right; 
 }
 
 .day-cell-empty,
 .jour-semaine-weekend {
   min-height: 120px;
-  background-color: #f7f5f2 !important; /* War9a gris chwiya */
+  background-color: #f7f5f2 !important; 
   cursor: not-allowed;
   padding: 8px;
 }
@@ -153,22 +142,20 @@ main > .bg-white {
   opacity: 0.7;
 }
 
-/* ========= DEBUT DIAL TBDIL LI TLBTI (Gris w Zre9) ========= */
 .jour-semaine-aujoudhui {
-  background-color: #f0f4f9 !important; /* Gris fat7 mzrreq chwiya */
+  background-color: #f0f4f9 !important; 
 }
 
 .jour-semaine-aujoudhui .day-number {
   color: #ffffff !important;
-  background-color: #1a73e8 !important; /* Zre9 (b7al dial Google) */
+  background-color: #1a73e8 !important;
   border-radius: 50%;
   padding: 4px 8px;
   display: inline-block;
   font-weight: 700;
-  float: right; /* Yji f l 9nt 3la limn */
   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-/* ========= FIN DIAL TBDIL LI TLBTI ========= */
+
 
 
 .reservations-container {
@@ -177,9 +164,6 @@ main > .bg-white {
   flex-direction: column;
   gap: 4px;
 }
-/* === 10. STYLE DIAL LES CARTES (RESERVATIONS) === */
-/* Style "Pastel/Sticker" (L background mlwwen) */
-
 .reservation-card {
   padding: 4px 9px;
   border-radius: 4px;
