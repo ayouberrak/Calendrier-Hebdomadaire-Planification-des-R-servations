@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // tracer reservations 
     function tracerReservation() {
+
         let container = document.querySelectorAll('.reservations-container');
         // vider le conatainer 
         for (let i = 0; i < container.length; i++) {
@@ -160,17 +161,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     isMacth = false;
                 }
             }
-
+            // exemple  "res-container-2025-10-31"
             let containerJour = document.getElementById('res-container-' + rese.jour);
+            
+            // cree les div de reservation 
             if (containerJour) {
                 let card = document.createElement('div');
                 card.classList.add('reservation-card', 'type-' + rese.type);
                 card.dataset.id = rese.id;
+                // clee de drag & drop
                 card.draggable = true; 
+                // si il ya pas dans le search il va etre opacity 50
                 if (!isMacth) {
                     card.classList.add('reservation-card-transparent');
                 }
-
+                // html sturcture
                 card.innerHTML =
                     '<span class="event-info">' +
                     '<span>' + rese.debut + '</span>' +
@@ -180,15 +185,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     '<button class="btn-modifier p-1">Mod</button>' + 
                     '<button class="btn-supprimer p-1">Sup</button>' + 
                     '</div>';
-
+                // append in card calender 
                 containerJour.appendChild(card);
-
+                
+                // logique de drag & drop 
                 card.addEventListener('dragstart', function (e) {
                     let currentCard = e.target.closest('.reservation-card');
-                    
+                    // si il est filtree 
                     if (currentCard && !currentCard.classList.contains('reservation-card-transparent')) {
                         draggedId = currentCard.dataset.id; 
-                        
+                        // un timer pour il le rend transparent 
                         setTimeout(function () {
                             currentCard.classList.add('opacity-50');
                         }, 0);

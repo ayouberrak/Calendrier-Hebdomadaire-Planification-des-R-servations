@@ -3,7 +3,7 @@
 
 
 body {
-  background-color: #fdfaf3 !important;
+  background-color: #a1967e !important;
   color: #4a3c31;
   font-family: 'Merriweather', serif; 
   background-image: linear-gradient(rgba(0,0,0,0.02) 2%, transparent 2%),
@@ -14,7 +14,7 @@ body {
 header.bg-white {
   background-color: transparent !important; 
   box-shadow: none !important;
-  border-bottom: 2px dashed #a1887f;
+  border-bottom: 2px dashed #000000;
   padding-bottom: 1rem !important;
 }
 
