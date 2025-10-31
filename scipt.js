@@ -27,7 +27,7 @@ let cancel = document.getElementById('cancel-btn');
 // pour la date de ajoudhui  
 let currentDate = new Date();
 
-
+//  function principale  pour eviter les rechargment des composant de la page 
 document.addEventListener('DOMContentLoaded', function () {
 
     let draggedId = null; 
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let reservations = loadFromLocalStorage();
 
     let filtre = "";
+
+    // pour ouvrir le formulaire 
     function openForm(date) {
         formReservation.reset();
         titreModal.textContent = "Ajouter reservation";
@@ -43,10 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
         typeReservation.classList.remove('select-standard', 'select-vip', 'select-anniversaire', 'select-groupe');
         reservationModel.classList.remove('hidden');
     }
+    // close 
     function closeForm() {
         reservationModel.classList.add('hidden');
     }
 
+    // les cas pour closer le form 
     stopReservation.addEventListener('click', closeForm);
     cancel.addEventListener('click', closeForm);
 
@@ -56,14 +60,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 
+    // tracer les div de calender 
     function redesincalendrier(anne, mois) {
+
+        
         calendrier.innerHTML = "";
+        // le premier jour , 31 or 30 , emplacemt de 1/../....  
         let firstdayinmonth = new Date(anne, mois, 1);
         let nbrdayinmonth = new Date(anne, mois + 1, 0).getDate();
         let dayforweek = firstdayinmonth.getDay();
 
+        
         let dayforweeks = (dayforweek === 0) ? 6 : dayforweek - 1;
-
+ 
         thisWeek.textContent = firstdayinmonth.toLocaleDateString('fr-FR', {
             month: 'long', year: 'numeric'
         })
