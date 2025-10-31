@@ -1,45 +1,31 @@
-/* === THÈME "CARNET DE CROQUIS" (Sketchbook) === */
-/* Had l style mkhdour spécifique l HTML dialk w ghayghelb 3la Tailwind */
-
-/* 1. Kanjibo les fonts li ghankhdmo bihom */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Merriweather:wght@400;700&display=swap');
 
-/* 'Caveat' -> Font dial lktba b l yedd (l les titres)
-   'Merriweather' -> Font 9dima (dial lktba l 3adia)
-*/
 
 
-/* === 2. L STYLE L 3AM (L PAGE KAMLA) === */
 body {
-  /* Knbdlo l background l wa7ed loun b7al dial l war9a 9dima */
   background-color: #fdfaf3 !important;
-  color: #4a3c31; /* Loun b7al l 7bar (marrron ghame9) */
-  font-family: 'Merriweather', serif; /* L font l 3am */
-  
-  /* Zwa9a b7al l war9a mstrra b 5fafa */
+  color: #4a3c31;
+  font-family: 'Merriweather', serif; 
   background-image: linear-gradient(rgba(0,0,0,0.02) 2%, transparent 2%),
                     linear-gradient(90deg, rgba(0,0,0,0.02) 2%, transparent 2%);
   background-size: 30px 30px;
 }
 
-
-/* === 3. HEADER W TITRE === */
 header.bg-white {
-  background-color: transparent !important; /* N7ydo l byed dial Tailwind */
-  box-shadow: none !important; /* N7ydo shadow dial Tailwind */
-  border-bottom: 2px dashed #a1887f; /* Ndiro str b7al m9tte3 */
+  background-color: transparent !important; 
+  box-shadow: none !important;
+  border-bottom: 2px dashed #a1887f;
   padding-bottom: 1rem !important;
 }
 
 header h1.font-bold {
-  font-family: 'Caveat', cursive; /* Font dial l yedd */
-  font-size: 3.5rem; /* Nkebroh bzaf */
+  font-family: 'Caveat', cursive; 
+  font-size: 3.5rem; 
   color: #5d4037;
   font-weight: 700 !important;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
-/* === 4. L FILTRE DIAL L RECHERCHE === */
 #search-filter {
   background-color: #f5f0e8 !important;
   border: 1px solid #c8bdae !important;
@@ -60,7 +46,6 @@ header h1.font-bold {
   outline: none !important;
 }
 
-/* === 5. L CONTAINER DIAL L CALENDAR === */
 main > .bg-white {
   background-color: #ffffff !important; /* L war9a l kbira l byda */
   border: 1px solid #dcd3c8;
