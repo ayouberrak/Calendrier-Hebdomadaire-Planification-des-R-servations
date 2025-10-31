@@ -168,7 +168,7 @@ main > .bg-white {
   padding: 4px 9px;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 700; /* Ktba ghليda */
+  font-weight: 700; 
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -178,20 +178,15 @@ main > .bg-white {
   text-overflow: ellipsis;
   transition: all 0.2s ease;
   
-  /* CHANGEMENT: Drna border 5fif b7al sticker */
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
 .reservation-card:hover {
-  /* Effet dial "lift" mli t'hoveri */
   transform: translateY(-1px);
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-/* 7YDYDNA L CODE DIAL ::before KAMEL */
-
-/* L style dial l actions b9a nafsso */
 .event-actions {
   display: flex;
   align-items: center;
@@ -201,18 +196,18 @@ main > .bg-white {
 }
 
 .event-actions button {
-  color: inherit; /* Ghayakhod l loun mn l parent dialo */
+  color: inherit; 
   background: none;
   border: none;
   cursor: pointer;
   padding: 4px;
-  font-weight: 700; /* Nrdohom bold */
+  font-weight: 700;
 }
 .event-actions button:hover {
   text-decoration: underline;
 }
 .event-actions .btn-supprimer:hover {
-  opacity: 0.7; /* Nkhffo l loun chwiya */
+  opacity: 0.7; 
 }
 
 .reservation-card:hover .event-actions {
@@ -226,42 +221,30 @@ main > .bg-white {
   text-overflow: ellipsis;
   flex-grow: 1;
 }
-
-/* Filtre b9a nafsso */
 .reservation-card-transparent {
   opacity: 0.2;
   pointer-events: none;
 }
-
-/* === L ALWAN L JDAD DIAL L BACKGROUND === */
-/* Drna l alwan li déja 5tariti l l select box, 
-  w drna l ktba b loun ghame9 mtwalm m3ahom
-*/
-
 .type-standard { 
-  background-color: #007ed8; /* Zre9 bared bzaf */
-  color: #ffffff; /* Loun l ktba */
+  background-color: #007ed8;
+  color: #ffffff;
 }
 .type-vip { 
-  background-color: #ff0026; /* 7mer bared bzaf */
-  color: #ffffff; /* Loun l ktba */
+  background-color: #ff0026;
+  color: #ffffff; 
 }
 .type-anniversaire { 
-  background-color: #ada00f; /* Sfer bared bzaf */
-  color: #ffffff; /* Loun l ktba */
+  background-color: #ada00f; 
+  color: #ffffff; 
 }
 .type-groupe { 
-  background-color: #00750a; /* Khder bared bzaf */
-  color: #ffffff; /* Loun l ktba */
+  background-color: #00750a;
+  color: #ffffff; 
 }
-
-/* Tss7i7 l loun dial l buttons f l alwan l ghaym9in */
 .type-standard .event-actions button { color: #1c3a5a; }
 .type-vip .event-actions button { color: #6e2a3c; }
 .type-anniversaire .event-actions button { color: #5c4d0a; }
 .type-groupe .event-actions button { color: #3a5a1c; }
-
-/* === 11. DRAG & DROP === */
 .drag-over-target {
   background-color: #f0e9e0 !important;
   outline: 2px dashed #8d6e63;
