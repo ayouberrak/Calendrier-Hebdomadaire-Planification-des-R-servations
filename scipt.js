@@ -1,4 +1,3 @@
-// On récupère tous les éléments DOM dont on aura besoin
 let search = document.getElementById('search-filter');
 
 let prevWeek = document.getElementById('prev-month-btn');
@@ -10,7 +9,7 @@ let reservationModel = document.getElementById('reservation-modal');
 let titreModal = document.getElementById('modal-title');
 
 let formEdit = document.getElementById('form-edit-id');
-let formAjout = document.getElementById('form-jour'); // Hada howa l input <input type="hidden">
+let formAjout = document.getElementById('form-jour');
 
 let formReservation = document.getElementById('reservation-form');
 
@@ -28,31 +27,23 @@ let currentDate = new Date();
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    let draggedId = null; // Pour savoir quelle réservation on déplace (Drag & Drop)
+    let draggedId = null; 
     
     let reservations = loadFromLocalStorage();
 
     let filtre = "";
-
-    // function for open the form
     function openForm(date) {
         formReservation.reset();
         titreModal.textContent = "Ajouter reservation";
-        formAjout.value = date; // Nsajlo l date li clickina 3liha f l input hidden
-        formEdit.value = ""; // Nkhwiw l input dial l'edit
-        
-        // N7ydo l loun l 9dim mn select box
+        formAjout.value = date; 
+        formEdit.value = ""; 
         typeReservation.classList.remove('select-standard', 'select-vip', 'select-anniversaire', 'select-groupe');
-
         reservationModel.classList.remove('hidden');
     }
-
-    // function for close the form
     function closeForm() {
         reservationModel.classList.add('hidden');
     }
 
-    //  the posibility for close the form  
     stopReservation.addEventListener('click', closeForm);
     cancel.addEventListener('click', closeForm);
 
@@ -64,26 +55,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function redesincalendrier(anne, mois) {
         calendrier.innerHTML = "";
-        // first day of month , nombre de jours de mois , l'emplacement de premier jour dans la semaine
         let firstdayinmonth = new Date(anne, mois, 1);
         let nbrdayinmonth = new Date(anne, mois + 1, 0).getDate();
-        let dayforweek = firstdayinmonth.getDay(); // 0 = Dimanche, 1 = Lundi...
+        let dayforweek = firstdayinmonth.getDay();
 
-        //  l'emplacement de premier jour dans la semaine (hna nrdoha 0 = Lundi, 6 = Dimanche)
         let dayforweeks = (dayforweek === 0) ? 6 : dayforweek - 1;
 
-
-        // la valeur de mois et anne dans le titre
         thisWeek.textContent = firstdayinmonth.toLocaleDateString('fr-FR', {
             month: 'long', year: 'numeric'
         })
-
-        // ajout de div de mois precendant 
         for (let i = 0; i < dayforweeks; i++) {
             calendrier.innerHTML += '<div class="day-cell-empty"></div>';
         }
-
-        // ajout de div de ce mois 
         let aujoudhui = new Date();
         for (let jour = 1; jour <= nbrdayinmonth; jour++) {
             let datee = new Date(anne, mois, jour);
@@ -94,19 +77,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let jourSemaine = datee.getDay();
 
-            // weekand (class 'jour-semaine' hiya l 3adia)
-            let divClasse = 'jour-semaine'; // L class l 3adia
-            if (jourSemaine === 0 || jourSemaine === 6) { // 0 = Dimanche, 6 = Samedi
+            let divClasse = 'jour-semaine'; 
+            if (jourSemaine === 0 || jourSemaine === 6) { 
                 divClasse += ' jour-semaine-weekend';
             }
 
-            // aujourdhui
             if (anne === aujoudhui.getFullYear() && mois === aujoudhui.getMonth() && jour === aujoudhui.getDate()) {
                 divClasse += ' jour-semaine-aujoudhui';
             }
 
-            // la structure html des div de la grille 
-            // Tss7i7: 'reservations-container' machi 'resevations-container'
             calendrier.innerHTML +=
                 '<div class="' + divClasse + '" data-date="' + date + '">' + 
                 '<span class="day-number">' + jour + '</span>' + 
@@ -114,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 '</div>';
         }
 
-        // les joures de next mois 
         let totalDiv = dayforweeks + nbrdayinmonth;
         let joursRes;
         if (totalDiv % 7 === 0) {
@@ -126,19 +104,14 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < joursRes; i++) {
             calendrier.innerHTML += '<div class="day-cell-empty"></div>';
         }
-
-        // tracer les reservations 
         tracerReservation();
     }
 
     function tracerReservation() {
-        // vider tous les div 
-        let container = document.querySelectorAll('.reservations-container'); // S77e7t l ghalat dial l class
+        let container = document.querySelectorAll('.reservations-container');
         for (let i = 0; i < container.length; i++) {
             container[i].innerHTML = '';
         }
-
-        // search logique
         for (let i = 0; i < reservations.length; i++) {
             let rese = reservations[i];
 
@@ -150,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 let finheure = rese.fin.includes(filtre);
                 let nbrper = rese.personnes.toString().includes(filtre);
 
-                // si le non ou le type et vrai 
                 if (nonRes || typeRes || debutheure || finheure || nbrper) {
                     isMacth = true;
                 } else {
@@ -158,71 +130,57 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // le container de jour
             let containerJour = document.getElementById('res-container-' + rese.jour);
-
-            // si le container de jour existe 
             if (containerJour) {
-                // ajout les class pour style des div des card et on stok les id de reservation 
                 let card = document.createElement('div');
                 card.classList.add('reservation-card', 'type-' + rese.type);
                 card.dataset.id = rese.id;
-                card.draggable = true; // draggable pour deplacement des reservation
-
-                // si la reservation et pas dans le filter o la rend transparent
+                card.draggable = true; 
                 if (!isMacth) {
                     card.classList.add('reservation-card-transparent');
                 }
 
-                // afficher heure et le non + button supprimer et modifier avec leur style 
-                // 7yydt "font-bold" mn JS bach nkhliw CSS tcontroliha
                 card.innerHTML =
                     '<span class="event-info">' +
                     '<span>' + rese.debut + '</span>' +
                     '<span class="ml-1">' + rese.nom + '</span>' +
                     '</span>' +
                     '<div class="event-actions">' +
-                    '<button class="btn-modifier p-1">Mod</button>' + // 7yydt l classes dial tailwind
-                    '<button class="btn-supprimer p-1">Sup</button>' + // 7yydt l classes dial tailwind
+                    '<button class="btn-modifier p-1">Mod</button>' + 
+                    '<button class="btn-supprimer p-1">Sup</button>' + 
                     '</div>';
 
                 containerJour.appendChild(card);
 
-                // gestion de drag et drop 
-                // quand on commance a gliser event
                 card.addEventListener('dragstart', function (e) {
                     let currentCard = e.target.closest('.reservation-card');
                     
                     if (currentCard && !currentCard.classList.contains('reservation-card-transparent')) {
-                        draggedId = currentCard.dataset.id; // Nsajlo l'ID dialo
+                        draggedId = currentCard.dataset.id; 
                         
                         setTimeout(function () {
                             currentCard.classList.add('opacity-50');
                         }, 0);
                     } else {
-                        e.preventDefault(); // Mkhlinahch ythzz ila kan filtré w mchafoch
+                        e.preventDefault();
                     }
                 });
 
                 card.addEventListener('dragend', function(e) {
-                    // Ns77o l bug: e.target khass ykon howa l currentCard
                     let currentCard = e.target.closest('.reservation-card');
                     if (currentCard) {
                         currentCard.classList.remove('opacity-50');
                     }
-                    draggedId = null; // Nkhwiw l variable
+                    draggedId = null; 
                 });
             }
         }
     }
 
-    // gerer le click pour ajouter rejervation
     calendrier.addEventListener('click', function (e) {
         let clickJour = e.target.closest('.jour-semaine');
         
-        // si il click sur une div n'est pas dans le weekand
         if (clickJour && !clickJour.classList.contains('jour-semaine-weekend')) {
-            // si on ne click pas sur une reservation 
             if (!e.target.closest('.reservation-card')) {
                 let date = clickJour.dataset.date;
                 openForm(date); // Nssifto l date l function openForm
