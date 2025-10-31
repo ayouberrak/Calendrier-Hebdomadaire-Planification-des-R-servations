@@ -1,4 +1,6 @@
+//   declaration des variables pour utiliser 
 let search = document.getElementById('search-filter');
+
 
 let prevWeek = document.getElementById('prev-month-btn');
 let thisWeek = document.getElementById('current-month-year');
@@ -22,6 +24,7 @@ let typeReservation = document.getElementById('type-reservation');
 let stopReservation = document.getElementById('close-modal-btn');
 let cancel = document.getElementById('cancel-btn');
 
+// pour la date de ajoudhui  
 let currentDate = new Date();
 
 
