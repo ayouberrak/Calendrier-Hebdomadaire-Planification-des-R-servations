@@ -40,6 +40,6 @@ Ce projet est une application "statique" et ne nécessite aucun back-end ou proc
     ```
 2.  Naviguez dans le dossier du projet :
     ```bash
-    cd VOTRE-REPO
+    cd Calendrier-Hebdomadaire-Planification-des-R-servations
     ```
 3.  Ouvrez simplement le fichier `index.html` dans votre navigateur web préféré.
