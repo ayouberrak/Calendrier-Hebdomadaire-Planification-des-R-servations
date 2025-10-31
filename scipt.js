@@ -70,12 +70,20 @@ document.addEventListener('DOMContentLoaded', function () {
         let nbrdayinmonth = new Date(anne, mois + 1, 0).getDate();
         let dayforweek = firstdayinmonth.getDay();
 
+        // si est dimenche il re tourn a lundi
+        let dayforweeks;
+        if (dayforweek === 0) {
+            dayforweeks = 6;
+        } else {
+            dayforweeks = dayforweek - 1;
+        }
         
-        let dayforweeks = (dayforweek === 0) ? 6 : dayforweek - 1;
- 
+        // forma de de mois / anne 
         thisWeek.textContent = firstdayinmonth.toLocaleDateString('fr-FR', {
             month: 'long', year: 'numeric'
         })
+
+
         for (let i = 0; i < dayforweeks; i++) {
             calendrier.innerHTML += '<div class="day-cell-empty"></div>';
         }
