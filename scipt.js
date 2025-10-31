@@ -145,7 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
             let rese = reservations[i];
 
             let isMacth = true;
+            // si il ya une recherche
             if (filtre) {
+                // filter inclus dans les champs 
                 let nonRes = rese.nom.toLowerCase().includes(filtre);
                 let typeRes = rese.type.toLowerCase().includes(filtre);
                 let debutheure = rese.debut.includes(filtre);
