@@ -194,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     // si il est filtree 
                     if (currentCard && !currentCard.classList.contains('reservation-card-transparent')) {
                         draggedId = currentCard.dataset.id; 
-                        // un timer pour il le rend transparent 
                         setTimeout(function () {
                             currentCard.classList.add('opacity-50');
                         }, 0);
@@ -202,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         e.preventDefault();
                     }
                 });
-
+                // sinon
                 card.addEventListener('dragend', function(e) {
                     let currentCard = e.target.closest('.reservation-card');
                     if (currentCard) {
@@ -213,7 +212,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-
+    
+    // gestion de ouvrir le form
     calendrier.addEventListener('click', function (e) {
         let clickJour = e.target.closest('.jour-semaine');
         
