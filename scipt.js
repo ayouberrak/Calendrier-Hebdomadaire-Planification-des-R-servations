@@ -183,24 +183,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (clickJour && !clickJour.classList.contains('jour-semaine-weekend')) {
             if (!e.target.closest('.reservation-card')) {
                 let date = clickJour.dataset.date;
-                openForm(date); // Nssifto l date l function openForm
+                openForm(date);
             }
         }
     });
 
-    // gerer le click de modifier et supprimer 
     calendrier.addEventListener('click', function (e) {
         let click = e.target; 
 
-        // supprimer
         if (click.classList.contains('btn-supprimer')) {
             let card = click.closest('.reservation-card')
             let delateId = card.dataset.id;
 
-            // confirmation 
             if (confirm('vous voulez vraiment supprimer la reservation')) {
                 let newResvation = [];
-                // on garde les resevation sauf supprimer 
                 for (let i = 0; i < reservations.length; i++) {
                     if (reservations[i].id != parseInt(delateId)) {
                         newResvation.push(reservations[i]);
@@ -213,7 +209,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        //  modifier 
         if (click.classList.contains('btn-modifier')) {
             let card = click.closest('.reservation-card');
             let editId = card.dataset.id;
@@ -225,7 +220,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     break;
                 }
             }
-            // si il y a une reservation on rempli le form et le champ cache id , le titre de form 
             if (reseToEdit) {
                 NonClient.value = reseToEdit.nom;
                 heureDebut.value = reseToEdit.debut;
@@ -236,17 +230,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 formEdit.value = reseToEdit.id;
                 titreModal.textContent = "Modifer la reservation ";
 
-                // Nlwno l select box b l loun l 7ali
                 typeReservation.classList.remove('select-standard', 'select-vip', 'select-anniversaire', 'select-groupe');
                 typeReservation.classList.add('select-' + reseToEdit.type);
 
-                //remove de class hidden 
                 reservationModel.classList.remove('hidden');
             }
         }
     });
 
-    // === GESTION DRAG & DROP ===
     calendrier.addEventListener('dragover', function(e) {
         e.preventDefault(); 
         
@@ -288,61 +279,46 @@ document.addEventListener('DOMContentLoaded', function () {
         draggedId = null;
     });
 
-
-    // logique de filter 
-    // le filtere se refreche a chaque modification dans input de search 
     search.addEventListener('input', function (e) {
         filtre = e.target.value.toLowerCase();
         tracerReservation();
     });
 
-    // === CODE ZAYD BACH YLWWEN SELECT BOX ===
     typeReservation.addEventListener('change', function (e) {
         let selectedType = e.target.value;
         
-        // 1. 7yyd ga3 l classes dial l alwan l 9dam
         e.target.classList.remove('select-standard', 'select-vip', 'select-anniversaire', 'select-groupe');
 
-        // 2. Zid l class l jdida
         if (selectedType) {
             e.target.classList.add('select-' + selectedType);
         }
     });
-    // === FIN DIAL CODE ZAYD ===
 
-
-    // pour la fontionalite de mois precedant 
     prevWeek.addEventListener('click', function () {
         currentDate.setMonth(currentDate.getMonth() - 1);
         redesincalendrier(currentDate.getFullYear(), currentDate.getMonth());
     });
-    //  pour la fonctionalite de mois de suivant
     nextWeek.addEventListener('click', function () {
         currentDate.setMonth(currentDate.getMonth() + 1);
         redesincalendrier(currentDate.getFullYear(), currentDate.getMonth());
     })
 
 
-    // logique de submit de form 
     formReservation.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // VALIDATION: Lw9t dial fin khasso ykon kber mn lw9t dial l bdaya
         if (heureFin.value <= heureDebut.value) {
             alert("L'heure de fin doit être après l'heure de début.");
-            return; // Kan7bsso l function
+            return; 
         }
 
         let newId;
-        //  si il y a formEdit donc la modification , sinon est l'ajout   
         if (formEdit.value) {
             newId = parseInt(formEdit.value);
         } else {
-            // dans l'ajout un id nouveau
             newId = Date.now();
         }
         
-    // objet pour stoker les info de formulaire 
     let reservationData = {
             id: newId,
             jour: formAjout.value,
@@ -353,24 +329,19 @@ document.addEventListener('DOMContentLoaded', function () {
             type: typeReservation.value,
         };
     
-    //  si dans la modification 
     if (formEdit.value) {
-        // on cherche l'ancien reservaation 
         let found = false;
         for (let i = 0; i < reservations.length; i++) {
-            // on remplace par la nouvelle
             if (reservations[i].id === reservationData.id) {
                 reservations[i] = reservationData;
                 found = true;
                 break; 
             }
         }
-        // Hada 7titat, normalment khass dima yl9ah
         if (!found) { 
             reservations.push(reservationData);
         }
     } else {
-        // sinon c est lajout 
         reservations.push(reservationData);
     }
 
@@ -381,7 +352,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
     function saveToLocalStorage() {
-        // Nrtbo l reservations 9bel manssajlohom
         reservations.sort((a, b) => {
             if (a.jour < b.jour) return -1;
             if (a.jour > b.jour) return 1;
