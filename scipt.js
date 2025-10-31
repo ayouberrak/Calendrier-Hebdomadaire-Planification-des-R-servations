@@ -83,10 +83,12 @@ document.addEventListener('DOMContentLoaded', function () {
             month: 'long', year: 'numeric'
         })
 
-
+        // pour les jour avant 1
         for (let i = 0; i < dayforweeks; i++) {
             calendrier.innerHTML += '<div class="day-cell-empty"></div>';
         }
+
+        // tracer les jour de mois 
         let aujoudhui = new Date();
         for (let jour = 1; jour <= nbrdayinmonth; jour++) {
             let datee = new Date(anne, mois, jour);
@@ -96,16 +98,18 @@ document.addEventListener('DOMContentLoaded', function () {
             let date = anne + '-' + moisPadded + '-' + jourPadded;
 
             let jourSemaine = datee.getDay();
-
+            
+            // weekend 
             let divClasse = 'jour-semaine'; 
             if (jourSemaine === 0 || jourSemaine === 6) { 
                 divClasse += ' jour-semaine-weekend';
             }
 
+            // current date
             if (anne === aujoudhui.getFullYear() && mois === aujoudhui.getMonth() && jour === aujoudhui.getDate()) {
                 divClasse += ' jour-semaine-aujoudhui';
             }
-
+           
             calendrier.innerHTML +=
                 '<div class="' + divClasse + '" data-date="' + date + '">' + 
                 '<span class="day-number">' + jour + '</span>' + 
@@ -121,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
             joursRes = 7 - (totalDiv % 7);
         }
 
+        // pour les apres 31
         for (let i = 0; i < joursRes; i++) {
             calendrier.innerHTML += '<div class="day-cell-empty"></div>';
         }
