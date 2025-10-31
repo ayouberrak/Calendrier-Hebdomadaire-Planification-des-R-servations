@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     // tracer les div de calender 
-    function redesincalendrier(anne, mois) {
+    function desinercalender(anne, mois) {
 
         
         calendrier.innerHTML = "";
@@ -109,14 +109,15 @@ document.addEventListener('DOMContentLoaded', function () {
             if (anne === aujoudhui.getFullYear() && mois === aujoudhui.getMonth() && jour === aujoudhui.getDate()) {
                 divClasse += ' jour-semaine-aujoudhui';
             }
-           
+          //  tous les jours 
             calendrier.innerHTML +=
                 '<div class="' + divClasse + '" data-date="' + date + '">' + 
                 '<span class="day-number">' + jour + '</span>' + 
                 '<div class="reservations-container" id="res-container-' + date + '"></div>' + 
                 '</div>';
         }
-
+        
+        // les ligne de calender 
         let totalDiv = dayforweeks + nbrdayinmonth;
         let joursRes;
         if (totalDiv % 7 === 0) {
@@ -132,11 +133,14 @@ document.addEventListener('DOMContentLoaded', function () {
         tracerReservation();
     }
 
+    // tracer reservations 
     function tracerReservation() {
         let container = document.querySelectorAll('.reservations-container');
+        // vider le conatainer 
         for (let i = 0; i < container.length; i++) {
             container[i].innerHTML = '';
         }
+        // 
         for (let i = 0; i < reservations.length; i++) {
             let rese = reservations[i];
 
@@ -321,11 +325,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     prevWeek.addEventListener('click', function () {
         currentDate.setMonth(currentDate.getMonth() - 1);
-        redesincalendrier(currentDate.getFullYear(), currentDate.getMonth());
+        desinercalender(currentDate.getFullYear(), currentDate.getMonth());
     });
     nextWeek.addEventListener('click', function () {
         currentDate.setMonth(currentDate.getMonth() + 1);
-        redesincalendrier(currentDate.getFullYear(), currentDate.getMonth());
+        desinercalender(currentDate.getFullYear(), currentDate.getMonth());
     })
 
 
@@ -397,6 +401,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    redesincalendrier(currentDate.getFullYear(), currentDate.getMonth());
+    desinercalender(currentDate.getFullYear(), currentDate.getMonth());
 
 });
