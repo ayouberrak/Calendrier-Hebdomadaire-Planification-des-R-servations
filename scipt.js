@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let debutheure = rese.debut.includes(filtre);
                 let finheure = rese.fin.includes(filtre);
                 let nbrper = rese.personnes.toString().includes(filtre);
-
+                //  si il trouve un de c'est chanps => affiche
                 if (nonRes || typeRes || debutheure || finheure || nbrper) {
                     isMacth = true;
                 } else {
